@@ -1024,6 +1024,8 @@ on fs
     mount ext4 /dev/block/platform/13d60000.ufs/by-name/dqmdbg /dqmdbg nosuid nodev noatime noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic
     setprop ro.crypto.fuse_sdcard true
 
+    start logcat_cache
+
     restorecon_recursive /mnt/vendor/efs
     restorecon_recursive /mnt/vendor/cpefs
     restorecon_recursive /mnt/vendor/persist
@@ -1173,3 +1175,9 @@ service swapon /sbin/sswap -s -z -f 2560
     group root
     seclabel u:r:sswap:s0
     oneshot
+
+service logcat_cache /system/bin/logcat -b all -f /cache/logcat.exynos9820.txt -v threadtime
+    class main
+    user root
+    group system
+    disabled
