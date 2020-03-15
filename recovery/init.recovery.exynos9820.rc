@@ -27,6 +27,10 @@ on post-fs
     mkdir /dev/socket/iwt/ca 0770 system system
 
 on boot
+    mount ext4 /dev/block/platform/13d60000.ufs/by-name/cache /cache
+    start logd
+    start logcat_cache
+
     start predecrypt
     wait_for_prop vendor.predecrypt Ready
 
@@ -54,6 +58,13 @@ on property:crypto.ready=0
     stop tz_service
 
     umount /mnt/vendor/efs
+
+service logcat_cache /sbin/logcat -b all -f /cache/logcat.recovery.txt -v threadtime
+    class main
+    user root
+    group system
+    disabled
+    seclabel u:r:recovery:s0
 
 service predecrypt /sbin/predecrypt.sh
     oneshot
