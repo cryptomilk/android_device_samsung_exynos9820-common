@@ -18,6 +18,9 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
     android.hardware.audio.effect@5.0-impl
 
+PRODUCT_PACKAGES += \
+    SamsungAudioService
+
 ### BLUETOOTH
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
