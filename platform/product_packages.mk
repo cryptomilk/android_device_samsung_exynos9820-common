@@ -41,6 +41,9 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.5-legacy
 
 PRODUCT_PACKAGES += \
+    libshim_vendor_samsung_camera_provider
+
+PRODUCT_PACKAGES += \
     Snap
 
 ### DOZE

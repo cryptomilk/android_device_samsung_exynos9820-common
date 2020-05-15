@@ -146,7 +146,8 @@ TARGET_KEYMASTER_VARIANT := samsung
 ### SHIMS
 TARGET_LD_SHIM_LIBS += \
     /vendor/lib/vndk/libstagefright_omx_utils.so|libshim_stagefright_foundation.so \
-    /vendor/lib/libsensorlistener.so|libshim_sensorndkbridge.so
+    /vendor/lib/libsensorlistener.so|libshim_sensorndkbridge.so \
+    /vendor/bin/hw/vendor.samsung.hardware.camera.provider@3.0-service|libshim_vendor_samsung_camera_provider.so
 
 ### SEPOLICY
 include device/lineage/sepolicy/exynos/sepolicy.mk
