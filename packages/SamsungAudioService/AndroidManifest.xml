@@ -41,4 +41,5 @@
 
     </application>
 
+    <protected-broadcast android:name="com.samsung.intent.action.WB_AMR" />
 </manifest>
